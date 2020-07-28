@@ -1,6 +1,6 @@
 # tfstate-manage
 
-You can deploy state files of [Terraform](https://www.terraform.io/) on S3
+You can deploy state files of [Terraform](https://www.terraform.io/) on AWS S3 and ensure consistensy with Hash stored in AWS DynamoDB.
 
 ## Installation
 
