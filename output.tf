@@ -1,0 +1,1 @@
+#output elastic_ip { value = module.main.elastic_ip }

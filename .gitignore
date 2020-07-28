@@ -1,0 +1,5 @@
+.env
+# terraform variable and config files
+.terraform/
+*.tfvars*
+*.tfstate*
