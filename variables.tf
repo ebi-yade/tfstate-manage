@@ -8,11 +8,24 @@ variable bucket_name {
   */
   type = map
 }
-variable cidr_blocks {
+
+variable iam_arn_map {
   /*
   specify this when you want to restrict IP 
   from which they can access remote state
   */
-  type    = list
-  default = ["0.0.0.0/0"]
+  type    = map
+  default = {
+    default = ["*"]
+  }
+}
+variable cidr_blocks_map {
+  /*
+  specify this when you want to restrict IP 
+  from which they can access remote state
+  */
+  type    = map
+  default = {
+    default = ["0.0.0.0/0"]
+  }
 }

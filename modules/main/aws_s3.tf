@@ -12,7 +12,7 @@ resource "aws_s3_bucket" "this" {
   }
 
   versioning { enabled = true }
-  tags       = var.tags
+  tags = var.tags
 }
 
 data "aws_iam_policy_document" "this" {
@@ -21,7 +21,7 @@ data "aws_iam_policy_document" "this" {
     effect = "Allow"
     principals {
       type        = "AWS"
-      identifiers = ["*"]
+      identifiers = var.iam_arn_list
     }
     actions = [
       "s3:ListBucket",
@@ -42,13 +42,4 @@ data "aws_iam_policy_document" "this" {
       values   = var.cidr_blocks
     }
   }
-}
-
-resource "aws_s3_bucket_public_access_block" "this" {
-  bucket = aws_s3_bucket.this.id
-
-  block_public_acls       = true
-  block_public_policy     = true
-  ignore_public_acls      = true
-  restrict_public_buckets = true
 }
